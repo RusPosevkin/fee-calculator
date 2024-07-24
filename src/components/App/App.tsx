@@ -3,21 +3,22 @@ import moment from "moment";
 
 import "./App.css";
 
+import type { NewItemType } from "../../common/types";
 import { DEFAULT_PRICE, INVALID_TYPE } from "../../config";
 import { getFee } from "../../services";
-import { TotalFees, ItemsList, RegisterItemForm } from "../";
+import { TotalFees, ItemsList, RegisterItemForm } from "..";
 
 function App() {
   const DEFAULT_NEW_ITEM_STATE = {
     itemType: INVALID_TYPE,
     userType: INVALID_TYPE,
     price: DEFAULT_PRICE,
-    endDate: moment().format("YYYY-MM-DD"),
+    endDate: moment().format("YYYY-MM-DD")
   };
   const [total, setTotal] = useState(0);
-  const [newItem, setNewItem] = useState(DEFAULT_NEW_ITEM_STATE);
+  const [newItem, setNewItem] = useState<NewItemType>(DEFAULT_NEW_ITEM_STATE);
 
-  const onNewItemSubmitted = (event) => {
+  const onNewItemSubmitted = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const fee = getFee(newItem);
@@ -26,8 +27,6 @@ function App() {
     setTotal((currentTotal) => currentTotal + fee);
     setNewItem(DEFAULT_NEW_ITEM_STATE);
   };
-
-  console.log(newItem);
 
   return (
     <div className="App">

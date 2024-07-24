@@ -158,7 +158,7 @@ describe("getFee", () => {
     test("throws an Error", () => {
       expect(() =>
         getFee({
-          userType: null,
+          userType: 'incorrect',
           itemType: ITEM_TYPE.buyNow,
           price: 10,
           endDate: otherDate,
@@ -172,7 +172,7 @@ describe("getFee", () => {
       expect(() =>
         getFee({
           userType: USER_TYPE.company,
-          itemType: null,
+          itemType: 'incorrect',
           price: 10,
           endDate: otherDate,
         })

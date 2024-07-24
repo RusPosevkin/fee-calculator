@@ -1,7 +1,8 @@
 import { getDiscount } from "../getDiscount/getDiscount";
 import { USER_TYPE, PRICES, ITEM_TYPE } from "../../config";
+import { NewItemType } from "../../common/types";
 
-export const getFee = ({ userType, itemType, price, endDate }) => {
+export const getFee = ({ userType, itemType, price, endDate }: NewItemType) => {
   if (!Object.values(USER_TYPE).includes(userType)) {
     throw new Error("Unknown user type");
   }

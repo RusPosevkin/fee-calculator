@@ -1,10 +1,13 @@
 import "./RegisterItemForm.css";
 
+import type { RegisterItemFormPropsType } from "./RegisterItemForm.types";
+import type { NewItemType } from "../../common/types";
+
 import { ITEM_TYPE, USER_TYPE, INVALID_TYPE } from "../../config";
 
-function RegisterItemForm({ newItem, setNewItem, onSubmit }) {
-  const onItemTypeChanged = (event) => {
-    setNewItem((n) => {
+function RegisterItemForm({ newItem, setNewItem, onSubmit }: RegisterItemFormPropsType) {
+  const onItemTypeChanged = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setNewItem((n: NewItemType) => {
       return {
         ...n,
         itemType: event.target.value,
@@ -12,8 +15,8 @@ function RegisterItemForm({ newItem, setNewItem, onSubmit }) {
     });
   };
 
-  const onUserTypeChanged = (event) => {
-    setNewItem((n) => {
+  const onUserTypeChanged = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setNewItem((n: NewItemType) => {
       return {
         ...n,
         userType: event.target.value,
@@ -21,8 +24,8 @@ function RegisterItemForm({ newItem, setNewItem, onSubmit }) {
     });
   };
 
-  const onPriceChanged = (event) => {
-    setNewItem((n) => {
+  const onPriceChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewItem((n: NewItemType) => {
       return {
         ...n,
         price: Number(event.target.value),
@@ -30,8 +33,8 @@ function RegisterItemForm({ newItem, setNewItem, onSubmit }) {
     });
   };
 
-  const onEndDateChanged = (event) => {
-    setNewItem((n) => {
+  const onEndDateChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewItem((n: NewItemType) => {
       return {
         ...n,
         endDate: event.target.value,
