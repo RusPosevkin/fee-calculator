@@ -7,7 +7,6 @@ import { getFee } from "./getFee";
 import { ITEM_TYPE, USER_TYPE } from "./config";
 
 function App() {
-  const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
   const [newItem, setNewItem] = useState({
     itemType: -1,
