@@ -1,8 +1,7 @@
-import "./RegisterItemForm.css";
+import { RegisterItemFormContainer } from "./RegisterItemForm.styles";
 
 import type { RegisterItemFormPropsType } from "./RegisterItemForm.types";
 import type { NewItemType } from "../../common/types";
-
 import { ITEM_TYPE, USER_TYPE, INVALID_TYPE } from "../../config";
 
 function RegisterItemForm({ newItem, setNewItem, onSubmit }: RegisterItemFormPropsType) {
@@ -43,10 +42,10 @@ function RegisterItemForm({ newItem, setNewItem, onSubmit }: RegisterItemFormPro
   };
 
   return (
-    <>
+    <RegisterItemFormContainer>
       <h3>Register new item</h3>
 
-      <form className="Register-item-form" onSubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="userType">You are</label>
           <select
@@ -103,7 +102,7 @@ function RegisterItemForm({ newItem, setNewItem, onSubmit }: RegisterItemFormPro
 
         <input type="submit" className="btn btn-primary" value="Submit" />
       </form>
-    </>
+    </RegisterItemFormContainer>
   );
 }
 

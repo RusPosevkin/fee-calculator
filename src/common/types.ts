@@ -4,3 +4,8 @@ export type NewItemType = {
   price: number,
   endDate: string,
 };
+
+export interface NewItemTypeWithFee extends NewItemType {
+  fee: number;
+}
+
