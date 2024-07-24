@@ -1,6 +1,6 @@
 import moment from "moment";
 
-import { USER_TYPE, PRICES } from "./config";
+import { USER_TYPE, PRICES } from "../../config";
 
 export const isToday = (endDate) => {
   return moment(endDate).isSame(moment(), "day");

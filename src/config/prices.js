@@ -1,12 +1,6 @@
-export const ITEM_TYPE = {
-  auction: "auction",
-  buyNow: "buyNow",
-};
+import { USER_TYPE, ITEM_TYPE } from ".";
 
-export const USER_TYPE = {
-  person: "person",
-  company: "company",
-};
+export const DEFAULT_PRICE = 100;
 
 export const PRICES = {
   discount: {
