@@ -1,25 +1,13 @@
-import moment from "moment";
-
-import { USER_TYPE, PRICES } from "../../config";
-
-export const isToday = (endDate) => {
-  return moment(endDate).isSame(moment(), "day");
-};
-
-export const getDiscount = (userType, endDate) => {
-  const isCompany = userType === USER_TYPE.company;
-  let discount = isCompany ? PRICES.discount.company : PRICES.discount.person;
-
-  if (isToday(endDate)) {
-    discount += PRICES.discount.lastDay;
-  }
-
-  return discount;
-};
+import { getDiscount } from "../getDiscount/getDiscount";
+import { USER_TYPE, PRICES, ITEM_TYPE } from "../../config";
 
 export const getFee = ({ userType, itemType, price, endDate }) => {
   if (!Object.values(USER_TYPE).includes(userType)) {
     throw new Error("Unknown user type");
+  }
+
+  if (!Object.values(ITEM_TYPE).includes(itemType)) {
+    throw new Error("Unknown item type");
   }
 
   const discount = getDiscount(userType, endDate);
