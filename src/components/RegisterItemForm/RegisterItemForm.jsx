@@ -1,3 +1,5 @@
+import "./RegisterItemForm.css";
+
 import { ITEM_TYPE, USER_TYPE, INVALID_TYPE } from "../../config";
 
 function RegisterItemForm({ newItem, setNewItem, onSubmit }) {
@@ -41,14 +43,14 @@ function RegisterItemForm({ newItem, setNewItem, onSubmit }) {
     <>
       <h3>Register new item</h3>
 
-      <form className="New-item-form" onSubmit={onSubmit}>
+      <form className="Register-item-form" onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="userType">You are</label>
           <select
             className="form-control"
             id="userType"
-            defaultValue={INVALID_TYPE}
             onChange={onUserTypeChanged}
+            value={newItem.userType}
           >
             <option value={INVALID_TYPE} disabled>
               Select
@@ -63,7 +65,7 @@ function RegisterItemForm({ newItem, setNewItem, onSubmit }) {
           <select
             className="form-control"
             id="itemType"
-            defaultValue={INVALID_TYPE}
+            value={newItem.itemType}
             onChange={onItemTypeChanged}
           >
             <option value={INVALID_TYPE} disabled>

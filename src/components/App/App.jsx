@@ -8,13 +8,14 @@ import { getFee } from "../../services";
 import { TotalFees, ItemsList, RegisterItemForm } from "../";
 
 function App() {
-  const [total, setTotal] = useState(0);
-  const [newItem, setNewItem] = useState({
+  const DEFAULT_NEW_ITEM_STATE = {
     itemType: INVALID_TYPE,
     userType: INVALID_TYPE,
     price: DEFAULT_PRICE,
     endDate: moment().format("YYYY-MM-DD"),
-  });
+  };
+  const [total, setTotal] = useState(0);
+  const [newItem, setNewItem] = useState(DEFAULT_NEW_ITEM_STATE);
 
   const onNewItemSubmitted = (event) => {
     event.preventDefault();
@@ -23,6 +24,7 @@ function App() {
 
     // update total
     setTotal((currentTotal) => currentTotal + fee);
+    setNewItem(DEFAULT_NEW_ITEM_STATE);
   };
 
   console.log(newItem);
