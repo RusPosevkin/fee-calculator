@@ -85,8 +85,8 @@ function App() {
               <option value="-1" disabled>
                 Select
               </option>
-              <option value={USER_TYPE.person}>{USER_TYPE.person}</option>
-              <option value={USER_TYPE.company}>{USER_TYPE.company}</option>
+              <option value={USER_TYPE.person}>Person</option>
+              <option value={USER_TYPE.company}>Company</option>
             </select>
           </div>
 
@@ -101,8 +101,8 @@ function App() {
               <option value="-1" disabled>
                 Select
               </option>
-              <option value={ITEM_TYPE.auction}>{ITEM_TYPE.auction}</option>
-              <option value={ITEM_TYPE.buyNow}>{ITEM_TYPE.buyNow}</option>
+              <option value={ITEM_TYPE.auction}>Auction</option>
+              <option value={ITEM_TYPE.buyNow}>Buy it now</option>
             </select>
           </div>
 
