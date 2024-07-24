@@ -75,10 +75,10 @@ function App() {
         <h3>Register new item</h3>
         <form className="New-item-form" onSubmit={onNewItemSubmit}>
           <div className="form-group">
-            <label>You are</label>
+            <label htmlFor="userType">You are</label>
             <select
               className="form-control"
-              id="itemType"
+              id="userType"
               defaultValue="-1"
               onChange={onUserTypeChanged}
             >
@@ -91,7 +91,7 @@ function App() {
           </div>
 
           <div className="form-group">
-            <label>Item Type</label>
+            <label htmlFor="itemType">Item Type</label>
             <select
               className="form-control"
               id="itemType"
@@ -107,9 +107,10 @@ function App() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="itemType">Price</label>
+            <label htmlFor="price">Price</label>
             <input
               className="form-control"
+              id="price"
               type="number"
               value={newItem.price}
               onChange={onPriceChanged}
@@ -117,9 +118,10 @@ function App() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="itemType">End date</label>
+            <label htmlFor="endDate">End date</label>
             <input
               className="form-control"
+              id="endDate"
               type="text"
               value={newItem.endDate}
               onChange={onEndDateChanged}
