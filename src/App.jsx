@@ -1,7 +1,10 @@
 import { useState } from "react";
-import "./App.css";
-import { Calculator } from "./getFee";
 import moment from "moment";
+
+import "./App.css";
+
+import { getFee } from "./getFee";
+import { ITEM_TYPE, USER_TYPE } from "./config";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -17,7 +20,7 @@ function App() {
     setNewItem((n) => {
       return {
         ...n,
-        itemType: parseInt(event.target.value, 10),
+        itemType: event.target.value,
       };
     });
   };
@@ -26,7 +29,7 @@ function App() {
     setNewItem((n) => {
       return {
         ...n,
-        userType: parseInt(event.target.value, 10),
+        userType: event.target.value,
       };
     });
   };
@@ -34,8 +37,7 @@ function App() {
   const onNewItemSubmit = (event) => {
     event.preventDefault();
 
-    const calc = new Calculator();
-    const fee = calc.getFee(newItem);
+    const fee = getFee(newItem);
 
     // update total
     setTotal((currentTotal) => currentTotal + fee);
@@ -81,9 +83,11 @@ function App() {
               defaultValue="-1"
               onChange={onUserTypeChanged}
             >
-              <option value="-1">Select</option>
-              <option value="0">Person</option>
-              <option value="1">Company</option>
+              <option value="-1" disabled>
+                Select
+              </option>
+              <option value={USER_TYPE.person}>{USER_TYPE.person}</option>
+              <option value={USER_TYPE.company}>{USER_TYPE.company}</option>
             </select>
           </div>
 
@@ -95,9 +99,11 @@ function App() {
               defaultValue="-1"
               onChange={onItemTypeChange}
             >
-              <option value="-1">Select </option>
-              <option value="0">Auction</option>
-              <option value="1">Buy it now</option>
+              <option value="-1" disabled>
+                Select
+              </option>
+              <option value={ITEM_TYPE.auction}>{ITEM_TYPE.auction}</option>
+              <option value={ITEM_TYPE.buyNow}>{ITEM_TYPE.buyNow}</option>
             </select>
           </div>
 
