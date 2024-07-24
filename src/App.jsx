@@ -15,7 +15,7 @@ function App() {
     endDate: moment().format("YYYY-MM-DD"),
   });
 
-  const onItemTypeChange = (event) => {
+  const onItemTypeChanged = (event) => {
     setNewItem((n) => {
       return {
         ...n,
@@ -33,7 +33,7 @@ function App() {
     });
   };
 
-  const onNewItemSubmit = (event) => {
+  const onNewItemSubmitted = (event) => {
     event.preventDefault();
 
     const fee = getFee(newItem);
@@ -73,7 +73,7 @@ function App() {
         <p>Total fees: {total} </p>
 
         <h3>Register new item</h3>
-        <form className="New-item-form" onSubmit={onNewItemSubmit}>
+        <form className="New-item-form" onSubmit={onNewItemSubmitted}>
           <div className="form-group">
             <label htmlFor="userType">You are</label>
             <select
@@ -96,7 +96,7 @@ function App() {
               className="form-control"
               id="itemType"
               defaultValue="-1"
-              onChange={onItemTypeChange}
+              onChange={onItemTypeChanged}
             >
               <option value="-1" disabled>
                 Select
