@@ -15,7 +15,7 @@ function ItemsList({ items }: ItemsListPropsType) {
             {
               items.map((item, index) => (
                 <ItemCard key={index}>
-                  <Title>{item.userType} → {item.itemType === ITEM_TYPE.buyNow ? 'But it now' : 'Auction'}</Title>
+                  <Title>{item.userType} → {item.itemType === ITEM_TYPE.buyNow ? 'Buy it now' : 'Auction'}</Title>
                   <Price>
                     💰 {item.price} → {item.fee} (including fees)
                   </Price>
